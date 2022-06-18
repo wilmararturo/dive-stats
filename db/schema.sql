@@ -47,3 +47,10 @@ CREATE TABLE dives (
   location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE
 );
 
+CREATE FUNCTION random_between(low INT, high INT)
+RETURNS INT AS $$
+BEGIN
+  RETURN FLOOR(RANDOM() * (high - low + 1) + low);
+END;
+$$ LANGUAGE plpgsql;
+
