@@ -38,3 +38,12 @@ CREATE TABLE tags (
   UNIQUE(name, location_id)
 );
 
+CREATE TABLE dives (
+  id SERIAL PRIMARY KEY,
+  depth NUMERIC(5, 2) NOT NULL,
+  dive_date TIMESTAMP NOT NULL DEFAULT NOW(),
+  duration UNSIGNED NOT NULL,
+  diver_id INTEGER NOT NULL REFERENCES divers(id) ON DELETE CASCADE,
+  location_id INTEGER NOT NULL REFERENCES locations(id) ON DELETE CASCADE
+);
+
