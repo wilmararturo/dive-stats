@@ -54,3 +54,5 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+CREATE INDEX diver_index ON dives (diver_id);
+CREATE INDEX location_index ON dives (location_id);
